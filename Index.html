@@ -14,10 +14,6 @@
 
 <style>
 
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -38,15 +34,13 @@ a{
     text-decoration:none;
 }
 
-
-/* =========================================================
-   OPENING — WAX SEAL
-========================================================= */
+/* =========================
+   OPENING
+========================= */
 
 .opening{
     position:fixed;
     inset:0;
-
     width:100%;
     height:100dvh;
 
@@ -83,7 +77,6 @@ a{
         );
 
     background-size:7px 7px;
-
     opacity:.25;
 }
 
@@ -134,19 +127,15 @@ a{
 
 .opening-initials{
     font-family:"Cormorant Garamond",serif;
-
     font-size:17px;
     letter-spacing:7px;
-
     color:#7a1f2a;
-
     margin-bottom:25px;
 }
 
-
-/* =========================================================
+/* =========================
    WAX SEAL
-========================================================= */
+========================= */
 
 .wax-wrapper{
     position:relative;
@@ -172,7 +161,6 @@ a{
     height:170px;
 
     border:1px solid rgba(122,31,42,.18);
-
     border-radius:50%;
 
     animation:ringPulse 3s ease-in-out infinite;
@@ -230,9 +218,7 @@ a{
 
 .wax-mn{
     font-family:"Great Vibes",cursive;
-
     font-size:44px;
-
     line-height:1;
 }
 
@@ -249,9 +235,7 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:9px;
-
     letter-spacing:3px;
-
     text-transform:uppercase;
 }
 
@@ -261,9 +245,7 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:13px;
-
     letter-spacing:4px;
-
     text-transform:uppercase;
 
     color:#765f52;
@@ -277,14 +259,12 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:13px;
-
     color:#9b887c;
 }
 
-
-/* =========================================================
+/* =========================
    MAIN
-========================================================= */
+========================= */
 
 .main{
     opacity:0;
@@ -300,10 +280,9 @@ a{
     visibility:visible;
 }
 
-
-/* =========================================================
-   PARTIE 1 — NOTRE MARIAGE
-========================================================= */
+/* =========================
+   PARTIE 1
+========================= */
 
 .hero{
     min-height:100svh;
@@ -317,7 +296,11 @@ a{
     overflow:hidden;
 
     background:
-        url("palace-1.jpg")
+        linear-gradient(
+            rgba(15,20,20,.10),
+            rgba(15,20,20,.38)
+        ),
+        url("images/palace-1.jpg")
         center center / cover no-repeat;
 }
 
@@ -353,9 +336,7 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:14px;
-
     letter-spacing:6px;
-
     text-transform:uppercase;
 
     margin-bottom:18px;
@@ -365,7 +346,6 @@ a{
     font-family:"Amiri",serif;
 
     font-size:32px;
-
     line-height:1.8;
 
     margin-bottom:15px;
@@ -416,7 +396,6 @@ a{
     font-family:"Playfair Display",serif;
 
     font-size:18px;
-
     letter-spacing:3px;
 
     margin-bottom:8px;
@@ -426,7 +405,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:17px;
-
     letter-spacing:2px;
 
     opacity:.94;
@@ -447,7 +425,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:12px;
-
     letter-spacing:3px;
 
     text-transform:uppercase;
@@ -464,10 +441,9 @@ a{
     animation:scrollLine 1.8s infinite;
 }
 
-
-/* =========================================================
-   PARTIE 2 — AVEC LA GRÂCE DE DIEU
-========================================================= */
+/* =========================
+   PARTIE 2
+========================= */
 
 .details{
     min-height:100svh;
@@ -533,7 +509,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:14px;
-
     letter-spacing:5px;
 
     text-transform:uppercase;
@@ -611,7 +586,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:12px;
-
     letter-spacing:3px;
 
     text-transform:uppercase;
@@ -633,10 +607,9 @@ a{
     line-height:1.5;
 }
 
-
-/* =========================================================
+/* =========================
    LOCALISATION
-========================================================= */
+========================= */
 
 .location-section{
     padding-top:10px;
@@ -681,7 +654,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:15px;
-
     letter-spacing:2px;
 
     text-transform:uppercase;
@@ -697,10 +669,9 @@ a{
     transform:translateY(-3px);
 }
 
-
-/* =========================================================
-   PARTIE 3 — UNE SOIRÉE ÉLÉGANTE
-========================================================= */
+/* =========================
+   PARTIE 3
+========================= */
 
 .table-section{
     min-height:100svh;
@@ -721,7 +692,7 @@ a{
             rgba(22,26,24,.15),
             rgba(22,26,24,.45)
         ),
-        url("table-2.jpg")
+        url("images/table-2.jpg")
         center center / cover no-repeat;
 }
 
@@ -756,7 +727,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:14px;
-
     letter-spacing:5px;
 
     text-transform:uppercase;
@@ -790,10 +760,9 @@ a{
     text-shadow:0 2px 15px rgba(0,0,0,.35);
 }
 
-
-/* =========================================================
-   PARTIE 4 — FINAL
-========================================================= */
+/* =========================
+   PARTIE 4
+========================= */
 
 .final{
     min-height:75svh;
@@ -818,7 +787,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:14px;
-
     letter-spacing:9px;
 
     color:#7a1f2a;
@@ -850,7 +818,6 @@ a{
     font-family:"Playfair Display",serif;
 
     font-size:16px;
-
     letter-spacing:4px;
 
     color:#7a655b;
@@ -858,10 +825,9 @@ a{
     margin-top:30px;
 }
 
-
-/* =========================================================
-   WEDDING INVITATION STUDIO
-========================================================= */
+/* =========================
+   STUDIO
+========================= */
 
 .studio-footer{
     margin-top:65px;
@@ -884,7 +850,6 @@ a{
     font-family:"Playfair Display",serif;
 
     font-size:15px;
-
     letter-spacing:3px;
 
     text-transform:uppercase;
@@ -942,10 +907,9 @@ a{
     opacity:.75;
 }
 
-
-/* =========================================================
+/* =========================
    ANIMATIONS
-========================================================= */
+========================= */
 
 @keyframes sealFloat{
 
@@ -986,33 +950,26 @@ a{
 
     0%{
         transform:scaleY(.3);
-
         transform-origin:top;
-
         opacity:.2;
     }
 
     50%{
         transform:scaleY(1);
-
         transform-origin:top;
-
         opacity:1;
     }
 
     100%{
         transform:scaleY(.3);
-
         transform-origin:bottom;
-
         opacity:.2;
     }
 }
 
-
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:700px){
 
@@ -1049,9 +1006,6 @@ a{
         letter-spacing:3px;
     }
 
-
-    /* HERO */
-
     .hero{
         min-height:100svh;
     }
@@ -1083,12 +1037,8 @@ a{
         font-size:15px;
     }
 
-
-    /* DETAILS */
-
     .details{
         min-height:100svh;
-
         padding:85px 18px;
     }
 
@@ -1098,7 +1048,6 @@ a{
 
     .info-grid{
         grid-template-columns:1fr;
-
         gap:15px;
     }
 
@@ -1109,9 +1058,6 @@ a{
     .location-title{
         font-size:45px;
     }
-
-
-    /* TABLE */
 
     .table-section{
         min-height:85svh;
@@ -1124,9 +1070,6 @@ a{
     .table-text{
         font-size:18px;
     }
-
-
-    /* FINAL */
 
     .final{
         min-height:75svh;
@@ -1142,7 +1085,6 @@ a{
 
     .studio-name{
         font-size:13px;
-
         letter-spacing:2px;
     }
 
@@ -1151,10 +1093,9 @@ a{
     }
 }
 
-
-/* =========================================================
+/* =========================
    VERY SMALL PHONES
-========================================================= */
+========================= */
 
 @media(max-width:380px){
 
@@ -1182,25 +1123,18 @@ a{
     .table-title{
         font-size:52px;
     }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      OPENING
-===================================================== -->
+========================= -->
 
-<section
-    class="opening"
-    id="opening"
->
+<section class="opening" id="opening">
 
     <div class="opening-frame"></div>
 
@@ -1210,11 +1144,7 @@ a{
             M & M
         </div>
 
-
-        <div
-            class="wax-wrapper"
-            id="waxSeal"
-        >
+        <div class="wax-wrapper" id="waxSeal">
 
             <div class="wax-seal">
 
@@ -1232,11 +1162,9 @@ a{
 
         </div>
 
-
         <div class="open-text">
             Appuyez pour ouvrir
         </div>
-
 
         <div class="open-subtext">
             Une invitation pour un moment précieux
@@ -1246,343 +1174,253 @@ a{
 
 </section>
 
-
-
-<!-- =====================================================
+<!-- =========================
      MAIN
-===================================================== -->
+========================= -->
 
-<main
-    class="main"
-    id="main"
->
+<main class="main" id="main">
 
+    <!-- PARTIE 1 -->
 
-<!-- =====================================================
-     PARTIE 1 — NOTRE MARIAGE
-===================================================== -->
+    <section class="hero">
 
-<section class="hero">
+        <div class="hero-content">
 
-    <div class="hero-content">
-
-
-        <div class="eyebrow">
-            Notre mariage
-        </div>
-
-
-        <div class="bismillah">
-            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-        </div>
-
-
-        <div class="names">
-
-            Mehdi
-
-            <span class="and">
-                &
-            </span>
-
-            Mouna
-
-        </div>
-
-
-        <div class="hero-mn">
-            M & M
-        </div>
-
-
-        <div class="hero-separator"></div>
-
-
-        <div class="date">
-            Vendredi 04 septembre 2026
-        </div>
-
-
-        <div class="location-small">
-            Palace Seddouki · Khaima
-        </div>
-
-
-        <div class="location-small">
-            Début du mariage · 20H
-        </div>
-
-    </div>
-
-
-    <div class="scroll-down">
-
-        Découvrir
-
-        <div class="scroll-line"></div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PARTIE 2 — AVEC LA GRÂCE DE DIEU
-===================================================== -->
-
-<section class="details">
-
-    <div class="details-container">
-
-
-        <div class="details-intro">
-            Avec la grâce de Dieu
-        </div>
-
-
-        <div class="details-title">
-            Nous vous invitons
-        </div>
-
-
-        <div class="details-line"></div>
-
-
-        <div class="info-grid">
-
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    ♡
-                </div>
-
-                <div class="info-label">
-                    Les mariés
-                </div>
-
-                <div class="info-value">
-                    Mehdi & Mouna
-                </div>
-
+            <div class="eyebrow">
+                Notre mariage
             </div>
 
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    ✦
-                </div>
-
-                <div class="info-label">
-                    La date
-                </div>
-
-                <div class="info-value">
-
-                    Vendredi
-                    <br>
-                    04 septembre 2026
-
-                </div>
-
+            <div class="bismillah">
+                بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
             </div>
 
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    ◷
-                </div>
-
-                <div class="info-label">
-                    La cérémonie
-                </div>
-
-                <div class="info-value">
-
-                    Début du mariage
-                    <br>
-                    20H
-
-                </div>
-
+            <div class="names">
+                Mehdi
+                <span class="and">&</span>
+                Mouna
             </div>
 
-
-        </div>
-
-
-        <!-- LOCALISATION -->
-
-        <div class="location-section">
-
-
-            <div class="location-title">
-                Le lieu
+            <div class="hero-mn">
+                M & M
             </div>
 
+            <div class="hero-separator"></div>
 
-            <div class="location-address">
+            <div class="date">
+                Vendredi 04 septembre 2026
+            </div>
+
+            <div class="location-small">
                 Palace Seddouki · Khaima
             </div>
 
-
-            <a
-                class="map-button"
-                href="https://maps.app.goo.gl/yp5n5okoFvBzHMF29?g_st=ic"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <span>⌖</span>
-
-                Voir la localisation
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PARTIE 3 — UNE SOIRÉE ÉLÉGANTE
-===================================================== -->
-
-<section class="table-section">
-
-
-    <div class="table-content">
-
-
-        <div class="table-small">
-            Une soirée élégante
-        </div>
-
-
-        <div class="table-title">
-            Un moment précieux
-        </div>
-
-
-        <div class="table-text">
-
-            Des fleurs blanches,
-            des bougies,
-            une lumière douce
-            et une ambiance élégante
-            pour célébrer notre union.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PARTIE 4 — FINAL
-===================================================== -->
-
-<section class="final">
-
-
-    <div class="final-content">
-
-
-        <div class="final-mn">
-            M & M
-        </div>
-
-
-        <div class="final-title">
-            Mehdi & Mouna
-        </div>
-
-
-        <div class="final-text">
-
-            Nous serions heureux
-            de partager avec vous
-            cette journée si particulière
-            et de célébrer ensemble
-            le début de notre nouvelle histoire.
-
-        </div>
-
-
-        <div class="final-date">
-            04 · 09 · 2026
-        </div>
-
-
-        <!-- =================================================
-             WEDDING INVITATION STUDIO
-        ================================================= -->
-
-        <div class="studio-footer">
-
-
-            <div class="studio-line"></div>
-
-
-            <div class="studio-name">
-                Wedding Invitation Studio
+            <div class="location-small">
+                Début du mariage · 20H
             </div>
 
+        </div>
 
-            <div class="studio-tagline">
-                Des invitations digitales pensées pour vos moments précieux
+        <div class="scroll-down">
+            Découvrir
+            <div class="scroll-line"></div>
+        </div>
+
+    </section>
+
+    <!-- PARTIE 2 -->
+
+    <section class="details">
+
+        <div class="details-container">
+
+            <div class="details-intro">
+                Avec la grâce de Dieu
             </div>
 
+            <div class="details-title">
+                Nous vous invitons
+            </div>
 
-            <a
-                href="https://www.instagram.com/wedding_invitation_studio_/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="instagram-link"
-            >
+            <div class="details-line"></div>
 
-                <span>
-                    Instagram
-                </span>
+            <div class="info-grid">
 
-                @wedding_invitation_studio_
+                <div class="info-card">
 
-            </a>
+                    <div class="info-icon">
+                        ♡
+                    </div>
+
+                    <div class="info-label">
+                        Les mariés
+                    </div>
+
+                    <div class="info-value">
+                        Mehdi & Mouna
+                    </div>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ✦
+                    </div>
+
+                    <div class="info-label">
+                        La date
+                    </div>
+
+                    <div class="info-value">
+                        Vendredi
+                        <br>
+                        04 septembre 2026
+                    </div>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ◷
+                    </div>
+
+                    <div class="info-label">
+                        La cérémonie
+                    </div>
+
+                    <div class="info-value">
+                        Début du mariage
+                        <br>
+                        20H
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="location-section">
+
+                <div class="location-title">
+                    Le lieu
+                </div>
+
+                <div class="location-address">
+                    Palace Seddouki · Khaima
+                </div>
+
+                <a
+                    class="map-button"
+                    href="https://maps.app.goo.gl/yp5n5okoFvBzHMF29?g_st=ic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>⌖</span>
+                    Voir la localisation
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- PARTIE 3 -->
 
+    <section class="table-section">
+
+        <div class="table-content">
+
+            <div class="table-small">
+                Une soirée élégante
+            </div>
+
+            <div class="table-title">
+                Un moment précieux
+            </div>
+
+            <div class="table-text">
+                Des fleurs blanches,
+                des bougies,
+                une lumière douce
+                et une ambiance élégante
+                pour célébrer notre union.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PARTIE 4 -->
+
+    <section class="final">
+
+        <div class="final-content">
+
+            <div class="final-mn">
+                M & M
+            </div>
+
+            <div class="final-title">
+                Mehdi & Mouna
+            </div>
+
+            <div class="final-text">
+                Nous serions heureux
+                de partager avec vous
+                cette journée si particulière
+                et de célébrer ensemble
+                le début de notre nouvelle histoire.
+            </div>
+
+            <div class="final-date">
+                04 · 09 · 2026
+            </div>
+
+            <div class="studio-footer">
+
+                <div class="studio-line"></div>
+
+                <div class="studio-name">
+                    Wedding Invitation Studio
+                </div>
+
+                <div class="studio-tagline">
+                    Des invitations digitales pensées pour vos moments précieux
+                </div>
+
+                <a
+                    href="https://www.instagram.com/wedding_invitation_studio_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="instagram-link"
+                >
+
+                    <span>
+                        Instagram
+                    </span>
+
+                    @wedding_invitation_studio_
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
 
-
-
-<!-- =====================================================
+<!-- =========================
      JAVASCRIPT
-===================================================== -->
+========================= -->
 
 <script>
 
-const waxSeal =
-    document.getElementById("waxSeal");
-
-const opening =
-    document.getElementById("opening");
-
-const main =
-    document.getElementById("main");
-
+const waxSeal = document.getElementById("waxSeal");
+const opening = document.getElementById("opening");
+const main = document.getElementById("main");
 
 function openInvitation(){
 
@@ -1601,14 +1439,9 @@ function openInvitation(){
 
 }
 
-
-waxSeal.addEventListener(
-    "click",
-    openInvitation
-);
+waxSeal.addEventListener("click", openInvitation);
 
 </script>
-
 
 </body>
 </html>
