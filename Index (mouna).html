@@ -35,14 +35,13 @@ a{
 }
 
 
-/* =========================================================
-   OPENING — PHOTO + WAX SEAL
-========================================================= */
+/* =====================================================
+   OPENING
+===================================================== */
 
 .opening{
     position:fixed;
     inset:0;
-
     width:100%;
     height:100dvh;
 
@@ -50,13 +49,7 @@ a{
     align-items:center;
     justify-content:center;
 
-    background:
-        linear-gradient(
-            rgba(20,15,12,.20),
-            rgba(20,15,12,.38)
-        ),
-        url("images/opening.jpg")
-        center center / cover no-repeat;
+    background:#f7f1e8;
 
     z-index:9999;
 
@@ -75,18 +68,16 @@ a{
 
 .opening::before{
     content:"";
-
     position:absolute;
     inset:0;
 
-    background:
+    background-image:
         radial-gradient(
-            rgba(255,255,255,.08) 1px,
+            rgba(90,65,50,.05) 1px,
             transparent 1px
         );
 
     background-size:7px 7px;
-
     opacity:.25;
 }
 
@@ -94,7 +85,7 @@ a{
     position:absolute;
     inset:24px;
 
-    border:1px solid rgba(255,255,255,.45);
+    border:1px solid rgba(105,72,58,.22);
 
     pointer-events:none;
 }
@@ -102,7 +93,6 @@ a{
 .opening-frame::before,
 .opening-frame::after{
     content:"";
-
     position:absolute;
 
     width:65px;
@@ -142,17 +132,15 @@ a{
     font-size:17px;
     letter-spacing:7px;
 
-    color:#fffaf3;
+    color:#7a1f2a;
 
     margin-bottom:25px;
-
-    text-shadow:0 2px 12px rgba(0,0,0,.4);
 }
 
 
-/* =========================================================
+/* =====================================================
    WAX SEAL
-========================================================= */
+===================================================== */
 
 .wax-wrapper{
     position:relative;
@@ -177,7 +165,7 @@ a{
     width:170px;
     height:170px;
 
-    border:1px solid rgba(255,255,255,.55);
+    border:1px solid rgba(122,31,42,.18);
 
     border-radius:50%;
 
@@ -209,7 +197,7 @@ a{
         );
 
     box-shadow:
-        0 12px 25px rgba(0,0,0,.35),
+        0 12px 25px rgba(78,27,31,.25),
         inset 7px 7px 12px rgba(255,255,255,.08),
         inset -8px -10px 15px rgba(25,0,5,.25);
 
@@ -236,9 +224,7 @@ a{
 
 .wax-mn{
     font-family:"Great Vibes",cursive;
-
     font-size:44px;
-
     line-height:1;
 }
 
@@ -255,7 +241,6 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:9px;
-
     letter-spacing:3px;
 
     text-transform:uppercase;
@@ -267,14 +252,11 @@ a{
     font-family:"Cormorant Garamond",serif;
 
     font-size:13px;
-
     letter-spacing:4px;
 
     text-transform:uppercase;
 
-    color:#fffaf3;
-
-    text-shadow:0 2px 10px rgba(0,0,0,.45);
+    color:#765f52;
 
     animation:fadeText 2s ease-in-out infinite alternate;
 }
@@ -286,15 +268,13 @@ a{
 
     font-size:13px;
 
-    color:#f4e9df;
-
-    text-shadow:0 2px 10px rgba(0,0,0,.4);
+    color:#9b887c;
 }
 
 
-/* =========================================================
+/* =====================================================
    MAIN
-========================================================= */
+===================================================== */
 
 .main{
     opacity:0;
@@ -311,9 +291,9 @@ a{
 }
 
 
-/* =========================================================
-   PARTIE 1 — NOTRE MARIAGE
-========================================================= */
+/* =====================================================
+   PARTIE 1 — IMAGE AVEC SRC
+===================================================== */
 
 .hero{
     min-height:100svh;
@@ -326,19 +306,51 @@ a{
 
     overflow:hidden;
 
+    background:#3b302c;
+}
+
+
+/* IMAGE HERO */
+
+.hero-image{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    z-index:0;
+}
+
+
+/* VOILE SUR L'IMAGE */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
     background:
         linear-gradient(
             rgba(15,20,20,.10),
-            rgba(15,20,20,.38)
-        ),
-        url("images/palace-1.jpg")
-        center center / cover no-repeat;
+            rgba(15,20,20,.42)
+        );
+
+    z-index:1;
 }
 
 .hero::after{
     content:"";
 
     position:absolute;
+
     inset:0;
 
     background:
@@ -348,10 +360,13 @@ a{
             rgba(15,20,20,.12) 45%,
             rgba(15,20,20,.48)
         );
+
+    z-index:1;
 }
 
 .hero-content{
     position:relative;
+
     z-index:2;
 
     width:min(950px,92%);
@@ -479,9 +494,9 @@ a{
 }
 
 
-/* =========================================================
-   PARTIE 2 — DETAILS
-========================================================= */
+/* =====================================================
+   PARTIE 2
+===================================================== */
 
 .details{
     min-height:100svh;
@@ -648,9 +663,9 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    LOCALISATION
-========================================================= */
+===================================================== */
 
 .location-section{
     padding-top:10px;
@@ -712,9 +727,9 @@ a{
 }
 
 
-/* =========================================================
-   PARTIE 3
-========================================================= */
+/* =====================================================
+   PARTIE 3 — IMAGE AVEC SRC
+===================================================== */
 
 .table-section{
     min-height:100svh;
@@ -730,13 +745,44 @@ a{
 
     padding:80px 20px;
 
+    background:#3b302c;
+}
+
+
+/* IMAGE TABLE */
+
+.table-image{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    z-index:0;
+}
+
+
+/* VOILE */
+
+.table-section::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
     background:
         linear-gradient(
             rgba(22,26,24,.15),
-            rgba(22,26,24,.45)
-        ),
-        url("images/table-2.jpg")
-        center center / cover no-repeat;
+            rgba(22,26,24,.48)
+        );
+
+    z-index:1;
 }
 
 .table-section::after{
@@ -752,6 +798,8 @@ a{
             transparent 20%,
             rgba(15,20,18,.35) 100%
         );
+
+    z-index:1;
 }
 
 .table-content{
@@ -805,9 +853,9 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    PARTIE 4
-========================================================= */
+===================================================== */
 
 .final{
     min-height:75svh;
@@ -873,13 +921,12 @@ a{
 }
 
 
-/* =========================================================
-   STUDIO
-========================================================= */
+/* =====================================================
+   WEDDING INVITATION STUDIO
+===================================================== */
 
 .studio-footer{
     margin-top:65px;
-
     text-align:center;
 }
 
@@ -957,9 +1004,9 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    ANIMATIONS
-========================================================= */
+===================================================== */
 
 @keyframes sealFloat{
 
@@ -1018,9 +1065,9 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
 @media(max-width:700px){
 
@@ -1057,6 +1104,9 @@ a{
         letter-spacing:3px;
     }
 
+
+    /* HERO */
+
     .hero{
         min-height:100svh;
     }
@@ -1088,6 +1138,9 @@ a{
         font-size:15px;
     }
 
+
+    /* DETAILS */
+
     .details{
         min-height:100svh;
         padding:85px 18px;
@@ -1110,6 +1163,9 @@ a{
         font-size:45px;
     }
 
+
+    /* TABLE */
+
     .table-section{
         min-height:85svh;
     }
@@ -1121,6 +1177,9 @@ a{
     .table-text{
         font-size:18px;
     }
+
+
+    /* FINAL */
 
     .final{
         min-height:75svh;
@@ -1145,9 +1204,9 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    VERY SMALL PHONES
-========================================================= */
+===================================================== */
 
 @media(max-width:380px){
 
@@ -1182,6 +1241,7 @@ a{
 
 </head>
 
+
 <body>
 
 
@@ -1189,10 +1249,7 @@ a{
      OPENING
 ===================================================== -->
 
-<section
-    class="opening"
-    id="opening"
->
+<section class="opening" id="opening">
 
     <div class="opening-frame"></div>
 
@@ -1202,10 +1259,7 @@ a{
             M & M
         </div>
 
-        <div
-            class="wax-wrapper"
-            id="waxSeal"
-        >
+        <div class="wax-wrapper" id="waxSeal">
 
             <div class="wax-seal">
 
@@ -1236,14 +1290,12 @@ a{
 </section>
 
 
+
 <!-- =====================================================
      MAIN
 ===================================================== -->
 
-<main
-    class="main"
-    id="main"
->
+<main class="main" id="main">
 
 
 <!-- =====================================================
@@ -1251,6 +1303,19 @@ a{
 ===================================================== -->
 
 <section class="hero">
+
+
+    <!-- ===============================================
+         PHOTO 1
+         REMPLACE LE SRC CI-DESSOUS PAR TON IMAGE GITHUB
+    ================================================ -->
+
+    <img
+        class="hero-image"
+        src="TON_URL_IMAGE_1"
+        alt="Photo du mariage"
+    >
+
 
     <div class="hero-content">
 
@@ -1294,6 +1359,7 @@ a{
 
     </div>
 
+
     <div class="scroll-down">
 
         Découvrir
@@ -1303,6 +1369,7 @@ a{
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1323,7 +1390,9 @@ a{
 
         <div class="details-line"></div>
 
+
         <div class="info-grid">
+
 
             <div class="info-card">
 
@@ -1383,6 +1452,7 @@ a{
 
             </div>
 
+
         </div>
 
 
@@ -1416,11 +1486,25 @@ a{
 </section>
 
 
+
 <!-- =====================================================
      PARTIE 3
 ===================================================== -->
 
 <section class="table-section">
+
+
+    <!-- ===============================================
+         PHOTO 2
+         REMPLACE LE SRC CI-DESSOUS PAR TON IMAGE GITHUB
+    ================================================ -->
+
+    <img
+        class="table-image"
+        src="TON_URL_IMAGE_2"
+        alt="Décoration du mariage"
+    >
+
 
     <div class="table-content">
 
@@ -1445,6 +1529,7 @@ a{
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1477,8 +1562,6 @@ a{
             04 · 09 · 2026
         </div>
 
-
-        <!-- WEDDING INVITATION STUDIO -->
 
         <div class="studio-footer">
 
@@ -1515,6 +1598,7 @@ a{
 
 
 </main>
+
 
 
 <!-- =====================================================
