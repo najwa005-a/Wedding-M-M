@@ -1,1 +1,1618 @@
-# Wedding-M-M
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mehdi & Mouna — Invitation de Mariage</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f6efe5;
+    color:#3b2925;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   OPENING — WAX SEAL
+========================================================= */
+
+.opening{
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100dvh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f7f1e8;
+
+    z-index:9999;
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease,
+        transform 1.4s cubic-bezier(.77,0,.18,1);
+}
+
+.opening.hidden{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.05);
+    pointer-events:none;
+}
+
+.opening::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            rgba(90,65,50,.05) 1px,
+            transparent 1px
+        );
+
+    background-size:7px 7px;
+
+    opacity:.25;
+}
+
+.opening-frame{
+    position:absolute;
+    inset:24px;
+
+    border:1px solid rgba(105,72,58,.22);
+
+    pointer-events:none;
+}
+
+.opening-frame::before,
+.opening-frame::after{
+    content:"";
+    position:absolute;
+
+    width:65px;
+    height:65px;
+}
+
+.opening-frame::before{
+    top:-1px;
+    left:-1px;
+
+    border-top:2px solid #7a1f2a;
+    border-left:2px solid #7a1f2a;
+}
+
+.opening-frame::after{
+    bottom:-1px;
+    right:-1px;
+
+    border-bottom:2px solid #7a1f2a;
+    border-right:2px solid #7a1f2a;
+}
+
+.opening-content{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+}
+
+.opening-initials{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:17px;
+    letter-spacing:7px;
+
+    color:#7a1f2a;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================================
+   WAX SEAL
+========================================================= */
+
+.wax-wrapper{
+    position:relative;
+
+    width:145px;
+    height:145px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    animation:sealFloat 4s ease-in-out infinite;
+}
+
+.wax-wrapper::before{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    border:1px solid rgba(122,31,42,.18);
+
+    border-radius:50%;
+
+    animation:ringPulse 3s ease-in-out infinite;
+}
+
+.wax-seal{
+    width:122px;
+    height:122px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    color:#f7eadb;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #9e4652 0%,
+            #7b202c 35%,
+            #64151f 70%,
+            #4d1018 100%
+        );
+
+    box-shadow:
+        0 12px 25px rgba(78,27,31,.25),
+        inset 7px 7px 12px rgba(255,255,255,.08),
+        inset -8px -10px 15px rgba(25,0,5,.25);
+
+    transition:.45s ease;
+}
+
+.wax-wrapper:hover .wax-seal{
+    transform:scale(1.07) rotate(-2deg);
+}
+
+.wax-seal::before{
+    content:"";
+
+    position:absolute;
+    inset:-4px;
+
+    border-radius:
+        47% 53% 50% 48%
+        /
+        51% 47% 53% 49%;
+
+    border:2px solid rgba(103,17,27,.5);
+}
+
+.wax-mn{
+    font-family:"Great Vibes",cursive;
+
+    font-size:44px;
+
+    line-height:1;
+}
+
+.wax-line{
+    width:35px;
+    height:1px;
+
+    background:rgba(247,234,219,.55);
+
+    margin:6px 0 4px;
+}
+
+.wax-text{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.open-text{
+    margin-top:31px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#765f52;
+
+    animation:fadeText 2s ease-in-out infinite alternate;
+}
+
+.open-subtext{
+    margin-top:7px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:13px;
+
+    color:#9b887c;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity 1.4s ease .3s,
+        visibility 1.4s ease .3s;
+}
+
+.main.visible{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* =========================================================
+   PARTIE 1 — NOTRE MARIAGE
+========================================================= */
+
+.hero{
+    min-height:100svh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(15,20,20,.10),
+            rgba(15,20,20,.38)
+        ),
+        url("images/palace-1.jpg")
+        center center / cover no-repeat;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(15,20,20,.05),
+            rgba(15,20,20,.12) 45%,
+            rgba(15,20,20,.48)
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:min(950px,92%);
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    color:#fffdf8;
+}
+
+.eyebrow{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:14px;
+
+    letter-spacing:6px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+}
+
+.bismillah{
+    font-family:"Amiri",serif;
+
+    font-size:32px;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+
+    text-shadow:0 3px 15px rgba(0,0,0,.28);
+}
+
+.names{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(68px,11vw,125px);
+
+    line-height:.95;
+
+    text-shadow:0 5px 25px rgba(0,0,0,.30);
+}
+
+.names .and{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:.35em;
+
+    margin:0 12px;
+
+    vertical-align:middle;
+}
+
+.hero-mn{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:13px;
+
+    letter-spacing:9px;
+
+    margin-top:25px;
+}
+
+.hero-separator{
+    width:100px;
+    height:1px;
+
+    background:rgba(255,255,255,.65);
+
+    margin:28px auto;
+}
+
+.date{
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+    margin-bottom:8px;
+}
+
+.location-small{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    opacity:.94;
+}
+
+.scroll-down{
+    position:absolute;
+
+    z-index:3;
+
+    left:50%;
+    bottom:24px;
+
+    transform:translateX(-50%);
+
+    color:white;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.scroll-line{
+    width:1px;
+    height:35px;
+
+    background:rgba(255,255,255,.7);
+
+    margin:9px auto 0;
+
+    animation:scrollLine 1.8s infinite;
+}
+
+
+/* =========================================================
+   PARTIE 2 — AVEC LA GRÂCE DE DIEU
+========================================================= */
+
+.details{
+    min-height:100svh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:100px 20px;
+
+    background:#f6efe5;
+
+    overflow:hidden;
+}
+
+.details::before{
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(122,31,42,.08);
+
+    top:-250px;
+    left:-250px;
+}
+
+.details::after{
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+    height:380px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(122,31,42,.08);
+
+    bottom:-210px;
+    right:-210px;
+}
+
+.details-container{
+    position:relative;
+
+    z-index:2;
+
+    width:min(1050px,100%);
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.details-intro{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#8b7063;
+
+    margin-bottom:18px;
+}
+
+.details-title{
+    font-family:"Great Vibes",cursive;
+
+    font-size:65px;
+
+    color:#741e29;
+
+    margin-bottom:18px;
+}
+
+.details-line{
+    width:70px;
+    height:1px;
+
+    background:#8d6b59;
+
+    margin:0 auto 45px;
+}
+
+.info-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-bottom:50px;
+}
+
+.info-card{
+    position:relative;
+
+    padding:35px 20px;
+
+    background:rgba(255,255,255,.38);
+
+    border:1px solid rgba(104,75,61,.18);
+}
+
+.info-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:8px;
+    left:8px;
+    right:8px;
+    bottom:8px;
+
+    border:1px solid rgba(122,31,42,.08);
+}
+
+.info-icon{
+    position:relative;
+
+    color:#7a1f2a;
+
+    font-size:23px;
+
+    margin-bottom:13px;
+}
+
+.info-label{
+    position:relative;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#8d766a;
+
+    margin-bottom:10px;
+}
+
+.info-value{
+    position:relative;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    color:#402e28;
+
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   LOCALISATION
+========================================================= */
+
+.location-section{
+    padding-top:10px;
+}
+
+.location-title{
+    font-family:"Great Vibes",cursive;
+
+    font-size:50px;
+
+    color:#741e29;
+
+    margin-bottom:10px;
+}
+
+.location-address{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:19px;
+
+    color:#67534a;
+
+    margin-bottom:25px;
+}
+
+.map-button{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 30px;
+
+    border:1px solid #741e29;
+
+    color:#741e29;
+
+    background:transparent;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.35s ease;
+}
+
+.map-button:hover{
+    background:#741e29;
+
+    color:#fff8ef;
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   PARTIE 3 — UNE SOIRÉE ÉLÉGANTE
+========================================================= */
+
+.table-section{
+    min-height:100svh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    padding:80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(22,26,24,.15),
+            rgba(22,26,24,.45)
+        ),
+        url("images/table-2.jpg")
+        center center / cover no-repeat;
+}
+
+.table-section::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(15,20,18,.35) 100%
+        );
+}
+
+.table-content{
+    position:relative;
+
+    z-index:2;
+
+    width:min(750px,92%);
+
+    text-align:center;
+
+    color:#fffdf7;
+}
+
+.table-small{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.table-title{
+    font-family:"Great Vibes",cursive;
+
+    font-size:75px;
+
+    line-height:1.05;
+
+    margin-bottom:20px;
+
+    text-shadow:0 4px 20px rgba(0,0,0,.25);
+}
+
+.table-text{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:21px;
+
+    line-height:1.7;
+
+    max-width:620px;
+
+    margin:auto;
+
+    text-shadow:0 2px 15px rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   PARTIE 4 — FINAL
+========================================================= */
+
+.final{
+    min-height:75svh;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:90px 20px;
+
+    background:#f6efe5;
+}
+
+.final-content{
+    width:min(750px,92%);
+}
+
+.final-mn{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:14px;
+
+    letter-spacing:9px;
+
+    color:#7a1f2a;
+
+    margin-bottom:20px;
+}
+
+.final-title{
+    font-family:"Great Vibes",cursive;
+
+    font-size:80px;
+
+    color:#741e29;
+
+    margin-bottom:20px;
+}
+
+.final-text{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:21px;
+
+    line-height:1.7;
+
+    color:#665249;
+}
+
+.final-date{
+    font-family:"Playfair Display",serif;
+
+    font-size:16px;
+
+    letter-spacing:4px;
+
+    color:#7a655b;
+
+    margin-top:30px;
+}
+
+
+/* =========================================================
+   WEDDING INVITATION STUDIO
+========================================================= */
+
+.studio-footer{
+    margin-top:65px;
+
+    text-align:center;
+}
+
+.studio-line{
+    width:55px;
+    height:1px;
+
+    background:#7a1f2a;
+
+    margin:0 auto 25px;
+
+    opacity:.7;
+}
+
+.studio-name{
+    font-family:"Playfair Display",serif;
+
+    font-size:15px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#7a1f2a;
+
+    margin-bottom:10px;
+}
+
+.studio-tagline{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:16px;
+
+    color:#806d63;
+
+    margin-bottom:20px;
+}
+
+.instagram-link{
+    display:inline-flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+
+    color:#7a1f2a;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:16px;
+
+    letter-spacing:1.5px;
+
+    border-bottom:1px solid rgba(122,31,42,.35);
+
+    padding-bottom:5px;
+
+    transition:.3s ease;
+}
+
+.instagram-link span{
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.instagram-link:hover{
+    transform:translateY(-2px);
+
+    opacity:.75;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes sealFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-7px);
+    }
+}
+
+@keyframes ringPulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:.15;
+    }
+}
+
+@keyframes fadeText{
+
+    from{
+        opacity:.45;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes scrollLine{
+
+    0%{
+        transform:scaleY(.3);
+
+        transform-origin:top;
+
+        opacity:.2;
+    }
+
+    50%{
+        transform:scaleY(1);
+
+        transform-origin:top;
+
+        opacity:1;
+    }
+
+    100%{
+        transform:scaleY(.3);
+
+        transform-origin:bottom;
+
+        opacity:.2;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .opening-frame{
+        inset:15px;
+    }
+
+    .opening-initials{
+        font-size:14px;
+        letter-spacing:5px;
+    }
+
+    .wax-wrapper{
+        width:130px;
+        height:130px;
+    }
+
+    .wax-wrapper::before{
+        width:152px;
+        height:152px;
+    }
+
+    .wax-seal{
+        width:108px;
+        height:108px;
+    }
+
+    .wax-mn{
+        font-size:39px;
+    }
+
+    .open-text{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        min-height:100svh;
+    }
+
+    .bismillah{
+        font-size:26px;
+    }
+
+    .names{
+        font-size:70px;
+    }
+
+    .names .and{
+        font-size:.32em;
+        margin:0 4px;
+    }
+
+    .hero-mn{
+        font-size:11px;
+        letter-spacing:6px;
+    }
+
+    .date{
+        font-size:15px;
+        letter-spacing:2px;
+    }
+
+    .location-small{
+        font-size:15px;
+    }
+
+
+    /* DETAILS */
+
+    .details{
+        min-height:100svh;
+
+        padding:85px 18px;
+    }
+
+    .details-title{
+        font-size:55px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .info-card{
+        padding:28px 18px;
+    }
+
+    .location-title{
+        font-size:45px;
+    }
+
+
+    /* TABLE */
+
+    .table-section{
+        min-height:85svh;
+    }
+
+    .table-title{
+        font-size:60px;
+    }
+
+    .table-text{
+        font-size:18px;
+    }
+
+
+    /* FINAL */
+
+    .final{
+        min-height:75svh;
+    }
+
+    .final-title{
+        font-size:65px;
+    }
+
+    .final-text{
+        font-size:19px;
+    }
+
+    .studio-name{
+        font-size:13px;
+
+        letter-spacing:2px;
+    }
+
+    .studio-tagline{
+        font-size:15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    .names{
+        font-size:61px;
+    }
+
+    .bismillah{
+        font-size:23px;
+    }
+
+    .wax-seal{
+        width:100px;
+        height:100px;
+    }
+
+    .wax-mn{
+        font-size:35px;
+    }
+
+    .details-title{
+        font-size:49px;
+    }
+
+    .table-title{
+        font-size:52px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<section
+    class="opening"
+    id="opening"
+>
+
+    <div class="opening-frame"></div>
+
+    <div class="opening-content">
+
+        <div class="opening-initials">
+            M & M
+        </div>
+
+
+        <div
+            class="wax-wrapper"
+            id="waxSeal"
+        >
+
+            <div class="wax-seal">
+
+                <div class="wax-mn">
+                    M&M
+                </div>
+
+                <div class="wax-line"></div>
+
+                <div class="wax-text">
+                    Wedding
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="open-text">
+            Appuyez pour ouvrir
+        </div>
+
+
+        <div class="open-subtext">
+            Une invitation pour un moment précieux
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main
+    class="main"
+    id="main"
+>
+
+
+<!-- =====================================================
+     PARTIE 1 — NOTRE MARIAGE
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="eyebrow">
+            Notre mariage
+        </div>
+
+
+        <div class="bismillah">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
+
+
+        <div class="names">
+
+            Mehdi
+
+            <span class="and">
+                &
+            </span>
+
+            Mouna
+
+        </div>
+
+
+        <div class="hero-mn">
+            M & M
+        </div>
+
+
+        <div class="hero-separator"></div>
+
+
+        <div class="date">
+            Vendredi 04 septembre 2026
+        </div>
+
+
+        <div class="location-small">
+            Palace Seddouki · Khaima
+        </div>
+
+
+        <div class="location-small">
+            Début du mariage · 20H
+        </div>
+
+    </div>
+
+
+    <div class="scroll-down">
+
+        Découvrir
+
+        <div class="scroll-line"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PARTIE 2 — AVEC LA GRÂCE DE DIEU
+===================================================== -->
+
+<section class="details">
+
+    <div class="details-container">
+
+
+        <div class="details-intro">
+            Avec la grâce de Dieu
+        </div>
+
+
+        <div class="details-title">
+            Nous vous invitons
+        </div>
+
+
+        <div class="details-line"></div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ♡
+                </div>
+
+                <div class="info-label">
+                    Les mariés
+                </div>
+
+                <div class="info-value">
+                    Mehdi & Mouna
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ✦
+                </div>
+
+                <div class="info-label">
+                    La date
+                </div>
+
+                <div class="info-value">
+
+                    Vendredi
+                    <br>
+                    04 septembre 2026
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ◷
+                </div>
+
+                <div class="info-label">
+                    La cérémonie
+                </div>
+
+                <div class="info-value">
+
+                    Début du mariage
+                    <br>
+                    20H
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- LOCALISATION -->
+
+        <div class="location-section">
+
+
+            <div class="location-title">
+                Le lieu
+            </div>
+
+
+            <div class="location-address">
+                Palace Seddouki · Khaima
+            </div>
+
+
+            <a
+                class="map-button"
+                href="https://maps.app.goo.gl/yp5n5okoFvBzHMF29?g_st=ic"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <span>⌖</span>
+
+                Voir la localisation
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PARTIE 3 — UNE SOIRÉE ÉLÉGANTE
+===================================================== -->
+
+<section class="table-section">
+
+
+    <div class="table-content">
+
+
+        <div class="table-small">
+            Une soirée élégante
+        </div>
+
+
+        <div class="table-title">
+            Un moment précieux
+        </div>
+
+
+        <div class="table-text">
+
+            Des fleurs blanches,
+            des bougies,
+            une lumière douce
+            et une ambiance élégante
+            pour célébrer notre union.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PARTIE 4 — FINAL
+===================================================== -->
+
+<section class="final">
+
+
+    <div class="final-content">
+
+
+        <div class="final-mn">
+            M & M
+        </div>
+
+
+        <div class="final-title">
+            Mehdi & Mouna
+        </div>
+
+
+        <div class="final-text">
+
+            Nous serions heureux
+            de partager avec vous
+            cette journée si particulière
+            et de célébrer ensemble
+            le début de notre nouvelle histoire.
+
+        </div>
+
+
+        <div class="final-date">
+            04 · 09 · 2026
+        </div>
+
+
+        <!-- =================================================
+             WEDDING INVITATION STUDIO
+        ================================================= -->
+
+        <div class="studio-footer">
+
+
+            <div class="studio-line"></div>
+
+
+            <div class="studio-name">
+                Wedding Invitation Studio
+            </div>
+
+
+            <div class="studio-tagline">
+                Des invitations digitales pensées pour vos moments précieux
+            </div>
+
+
+            <a
+                href="https://www.instagram.com/wedding_invitation_studio_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="instagram-link"
+            >
+
+                <span>
+                    Instagram
+                </span>
+
+                @wedding_invitation_studio_
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+const waxSeal =
+    document.getElementById("waxSeal");
+
+const opening =
+    document.getElementById("opening");
+
+const main =
+    document.getElementById("main");
+
+
+function openInvitation(){
+
+    main.classList.add("visible");
+
+    opening.classList.add("hidden");
+
+    setTimeout(function(){
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },300);
+
+}
+
+
+waxSeal.addEventListener(
+    "click",
+    openInvitation
+);
+
+</script>
+
+
+</body>
+</html>
