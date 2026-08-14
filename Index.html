@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mehdi & Mouna — Invitation de Mariage</title>
+<title>Éléa & Naël — Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -25,116 +28,76 @@ html{
 }
 
 body{
-    background:#f6efe5;
-    color:#3b2925;
+    margin:0;
+    background:#f8f6f2;
+    color:#403d39;
+    font-family:'Montserrat',sans-serif;
     overflow-x:hidden;
-}
-
-a{
-    text-decoration:none;
 }
 
 
 /* =====================================================
-   OPENING
+   OPENING — ENVELOPPE
 ===================================================== */
 
 .opening{
     position:fixed;
     inset:0;
-    width:100%;
-    height:100dvh;
+    z-index:9999;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:#f7f1e8;
+    overflow:hidden;
 
-    z-index:9999;
+    background:#dcecf1;
 
     transition:
-        opacity 1.4s ease,
-        visibility 1.4s ease,
-        transform 1.4s cubic-bezier(.77,0,.18,1);
+        opacity 1.5s ease,
+        visibility 1.5s ease;
 }
 
-.opening.hidden{
+.opening.hide{
     opacity:0;
     visibility:hidden;
-    transform:scale(1.05);
     pointer-events:none;
 }
 
-.opening::before{
-    content:"";
+
+/* =====================================================
+   IMAGE 1 — ENVELOPPE
+===================================================== */
+
+.opening-image{
     position:absolute;
     inset:0;
 
-    background-image:
-        radial-gradient(
-            rgba(90,65,50,.05) 1px,
-            transparent 1px
-        );
+    width:100%;
+    height:100%;
 
-    background-size:7px 7px;
-    opacity:.25;
+    object-fit:cover;
+    object-position:center;
+
+    transition:
+        transform 1.8s ease,
+        filter 1.4s ease,
+        opacity 1.4s ease;
 }
 
-.opening-frame{
-    position:absolute;
-    inset:24px;
+.opening.opening-active .opening-image{
+    transform:scale(1.08);
+    filter:blur(4px);
+    opacity:.55;
+}
 
-    border:1px solid rgba(105,72,58,.22);
+.opening-overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(207,228,235,.08);
 
     pointer-events:none;
-}
-
-.opening-frame::before,
-.opening-frame::after{
-    content:"";
-    position:absolute;
-
-    width:65px;
-    height:65px;
-}
-
-.opening-frame::before{
-    top:-1px;
-    left:-1px;
-
-    border-top:2px solid #7a1f2a;
-    border-left:2px solid #7a1f2a;
-}
-
-.opening-frame::after{
-    bottom:-1px;
-    right:-1px;
-
-    border-bottom:2px solid #7a1f2a;
-    border-right:2px solid #7a1f2a;
-}
-
-.opening-content{
-    position:relative;
-    z-index:2;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    text-align:center;
-}
-
-.opening-initials{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:17px;
-    letter-spacing:7px;
-
-    color:#7a1f2a;
-
-    margin-bottom:25px;
 }
 
 
@@ -142,161 +105,204 @@ a{
    WAX SEAL
 ===================================================== */
 
-.wax-wrapper{
-    position:relative;
+.seal-button{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
 
     width:145px;
     height:145px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    border:none;
+    border-radius:50%;
 
     cursor:pointer;
 
-    animation:sealFloat 4s ease-in-out infinite;
-}
-
-.wax-wrapper::before{
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    border:1px solid rgba(122,31,42,.18);
-
-    border-radius:50%;
-
-    animation:ringPulse 3s ease-in-out infinite;
-}
-
-.wax-seal{
-    width:122px;
-    height:122px;
-
-    border-radius:50%;
-
-    position:relative;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    color:#f7eadb;
+    z-index:20;
 
     background:
         radial-gradient(
             circle at 35% 30%,
-            #9e4652 0%,
-            #7b202c 35%,
-            #64151f 70%,
-            #4d1018 100%
+            #faf8f2 0%,
+            #eee9de 45%,
+            #d7d0c3 100%
         );
 
     box-shadow:
-        0 12px 25px rgba(78,27,31,.25),
-        inset 7px 7px 12px rgba(255,255,255,.08),
-        inset -8px -10px 15px rgba(25,0,5,.25);
+        0 12px 25px rgba(70,65,60,.22),
+        inset 0 3px 5px rgba(255,255,255,.75),
+        inset 0 -7px 12px rgba(120,110,95,.16);
 
-    transition:.45s ease;
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
 }
 
-.wax-wrapper:hover .wax-seal{
-    transform:scale(1.07) rotate(-2deg);
-}
-
-.wax-seal::before{
+.seal-button::before{
     content:"";
 
     position:absolute;
-    inset:-4px;
+    inset:5px;
 
-    border-radius:
-        47% 53% 50% 48%
-        /
-        51% 47% 53% 49%;
+    border-radius:50%;
 
-    border:2px solid rgba(103,17,27,.5);
+    border:1px solid rgba(120,110,95,.25);
 }
 
-.wax-mn{
-    font-family:"Great Vibes",cursive;
-    font-size:44px;
-    line-height:1;
+.seal-button::after{
+    content:"";
+
+    position:absolute;
+    inset:-7px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.7);
+
+    opacity:.7;
+
+    animation:sealPulse 2.8s infinite;
 }
 
-.wax-line{
-    width:35px;
-    height:1px;
-
-    background:rgba(247,234,219,.55);
-
-    margin:6px 0 4px;
+.seal-button:hover{
+    transform:translate(-50%,-50%) scale(1.06);
 }
 
-.wax-text{
-    font-family:"Cormorant Garamond",serif;
+.seal-initials{
+    position:absolute;
+    inset:0;
 
-    font-size:9px;
-    letter-spacing:3px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:48px;
+    font-weight:500;
+
+    letter-spacing:-3px;
+
+    color:#776e63;
+}
+
+.opening-text{
+    position:absolute;
+
+    bottom:50px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#fff;
+
+    font-size:8px;
+
+    letter-spacing:5px;
 
     text-transform:uppercase;
+
+    text-shadow:
+        0 2px 7px rgba(0,0,0,.18);
 }
 
-.open-text{
-    margin-top:31px;
+@keyframes sealPulse{
 
-    font-family:"Cormorant Garamond",serif;
+    0%,100%{
+        transform:scale(.96);
+        opacity:.35;
+    }
 
-    font-size:13px;
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    color:#765f52;
-
-    animation:fadeText 2s ease-in-out infinite alternate;
-}
-
-.open-subtext{
-    margin-top:7px;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:13px;
-
-    color:#9b887c;
+    50%{
+        transform:scale(1.04);
+        opacity:.8;
+    }
 }
 
 
 /* =====================================================
-   MAIN
+   PÉTALES
 ===================================================== */
 
-.main{
+.petals{
+    position:fixed;
+    inset:0;
+
+    z-index:10000;
+
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.petal{
+    position:absolute;
+
+    top:-40px;
+
+    width:10px;
+    height:16px;
+
+    background:#f4efea;
+
+    border-radius:80% 20% 80% 20%;
+
+    opacity:.85;
+
+    animation:falling linear forwards;
+}
+
+@keyframes falling{
+
+    0%{
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.9;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(120px)
+            rotate(500deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   SITE
+===================================================== */
+
+#site{
     opacity:0;
     visibility:hidden;
 
-    transition:
-        opacity 1.4s ease .3s,
-        visibility 1.4s ease .3s;
+    transition:opacity 1.5s ease;
 }
 
-.main.visible{
+#site.visible{
     opacity:1;
     visibility:visible;
 }
 
 
 /* =====================================================
-   PARTIE 1 — IMAGE AVEC SRC
+   PREMIÈRE PAGE
+   IMAGE 2 = FULL BACKGROUND
 ===================================================== */
 
 .hero{
-    min-height:100svh;
+    min-height:100vh;
 
     position:relative;
 
@@ -304,15 +310,17 @@ a{
     align-items:center;
     justify-content:center;
 
-    overflow:hidden;
+    text-align:center;
 
-    background:#3b302c;
+    overflow:hidden;
 }
 
 
-/* IMAGE HERO */
+/* =====================================================
+   IMAGE 2
+===================================================== */
 
-.hero-image{
+.hero-background{
     position:absolute;
 
     inset:0;
@@ -321,747 +329,845 @@ a{
     height:100%;
 
     object-fit:cover;
-
     object-position:center;
-
-    z-index:0;
 }
 
 
-/* VOILE SUR L'IMAGE */
+/* voile sur la photo */
 
-.hero::before{
-    content:"";
-
+.hero-overlay{
     position:absolute;
 
     inset:0;
 
     background:
         linear-gradient(
-            rgba(15,20,20,.10),
-            rgba(15,20,20,.42)
+            rgba(0,0,0,.12),
+            rgba(0,0,0,.28)
         );
-
-    z-index:1;
 }
 
-.hero::after{
-    content:"";
 
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(15,20,20,.05),
-            rgba(15,20,20,.12) 45%,
-            rgba(15,20,20,.48)
-        );
-
-    z-index:1;
-}
+/* contenu */
 
 .hero-content{
     position:relative;
 
     z-index:2;
 
-    width:min(950px,92%);
+    padding:30px;
 
-    padding:40px 20px;
+    color:#fff;
 
-    text-align:center;
+    text-shadow:
+        0 2px 15px rgba(0,0,0,.3);
 
-    color:#fffdf8;
+    animation:
+        heroAppear 2s ease;
 }
 
-.eyebrow{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:14px;
+.small-title{
+    font-size:9px;
 
     letter-spacing:6px;
 
     text-transform:uppercase;
 
-    margin-bottom:18px;
-}
-
-.bismillah{
-    font-family:"Amiri",serif;
-
-    font-size:32px;
-
-    line-height:1.8;
-
-    margin-bottom:15px;
-
-    text-shadow:0 3px 15px rgba(0,0,0,.28);
+    margin-bottom:25px;
 }
 
 .names{
-    font-family:"Great Vibes",cursive;
+    font-family:'Parisienne',cursive;
 
-    font-size:clamp(68px,11vw,125px);
+    font-size:
+        clamp(70px,10vw,130px);
 
-    line-height:.95;
+    line-height:.9;
 
-    text-shadow:0 5px 25px rgba(0,0,0,.30);
+    font-weight:400;
 }
 
-.names .and{
-    font-family:"Cormorant Garamond",serif;
+.amp{
+    font-family:'Cormorant Garamond',serif;
 
-    font-size:.35em;
+    font-size:45px;
 
-    margin:0 12px;
-
-    vertical-align:middle;
+    margin:17px 0;
 }
 
-.hero-mn{
-    font-family:"Cormorant Garamond",serif;
+.hero-date{
+    margin-top:35px;
 
-    font-size:13px;
+    font-family:'Cormorant Garamond',serif;
 
-    letter-spacing:9px;
+    font-size:25px;
 
-    margin-top:25px;
+    letter-spacing:4px;
 }
 
-.hero-separator{
-    width:100px;
-    height:1px;
+.hero-place{
+    margin-top:12px;
 
-    background:rgba(255,255,255,.65);
+    font-size:9px;
 
-    margin:28px auto;
-}
-
-.date{
-    font-family:"Playfair Display",serif;
-
-    font-size:18px;
-
-    letter-spacing:3px;
-
-    margin-bottom:8px;
-}
-
-.location-small{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:17px;
-
-    letter-spacing:2px;
-
-    opacity:.94;
-}
-
-.scroll-down{
-    position:absolute;
-
-    z-index:3;
-
-    left:50%;
-    bottom:24px;
-
-    transform:translateX(-50%);
-
-    color:white;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:12px;
-
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     text-transform:uppercase;
 }
 
-.scroll-line{
-    width:1px;
-    height:35px;
+@keyframes heroAppear{
 
-    background:rgba(255,255,255,.7);
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
 
-    margin:9px auto 0;
-
-    animation:scrollLine 1.8s infinite;
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
 /* =====================================================
-   PARTIE 2
+   INTRO
 ===================================================== */
 
-.details{
-    min-height:100svh;
+.intro{
+    min-height:80vh;
 
-    position:relative;
+    padding:110px 25px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    padding:100px 20px;
+    text-align:center;
 
-    background:#f6efe5;
-
-    overflow:hidden;
+    background:#faf8f4;
 }
 
-.details::before{
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(122,31,42,.08);
-
-    top:-250px;
-    left:-250px;
+.intro-inner{
+    max-width:850px;
 }
 
-.details::after{
-    content:"";
+.bismillah{
+    font-family:'Cormorant Garamond',serif;
 
-    position:absolute;
+    font-size:26px;
 
-    width:380px;
-    height:380px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(122,31,42,.08);
-
-    bottom:-210px;
-    right:-210px;
+    margin-bottom:35px;
 }
 
-.details-container{
-    position:relative;
+.divider{
+    display:flex;
 
-    z-index:2;
+    align-items:center;
+    justify-content:center;
 
-    width:min(1050px,100%);
+    gap:15px;
 
-    margin:auto;
+    margin:30px 0;
+}
+
+.divider span{
+    width:55px;
+    height:1px;
+
+    background:#c8beb2;
+}
+
+.divider i{
+    color:#aa9c8b;
+
+    font-style:normal;
+}
+
+.intro h2{
+    font-family:'Parisienne',cursive;
+
+    font-size:65px;
+
+    font-weight:400;
+
+    margin-bottom:25px;
+}
+
+.intro p{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#69635c;
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.date-section{
+    padding:120px 25px;
 
     text-align:center;
+
+    background:#eeece7;
 }
 
-.details-intro{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:14px;
+.section-label{
+    font-size:8px;
 
     letter-spacing:5px;
 
     text-transform:uppercase;
 
-    color:#8b7063;
+    color:#827970;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
-.details-title{
-    font-family:"Great Vibes",cursive;
+.big-date{
+    font-family:'Cormorant Garamond',serif;
 
-    font-size:65px;
+    font-size:
+        clamp(55px,8vw,95px);
 
-    color:#741e29;
+    font-weight:300;
 
-    margin-bottom:18px;
+    line-height:1.05;
 }
 
-.details-line{
-    width:70px;
-    height:1px;
+.date-info{
+    margin-top:20px;
 
-    background:#8d6b59;
+    font-size:10px;
 
-    margin:0 auto 45px;
-}
-
-.info-grid{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-    margin-bottom:50px;
-}
-
-.info-card{
-    position:relative;
-
-    padding:35px 20px;
-
-    background:rgba(255,255,255,.38);
-
-    border:1px solid rgba(104,75,61,.18);
-}
-
-.info-card::before{
-    content:"";
-
-    position:absolute;
-
-    top:8px;
-    left:8px;
-    right:8px;
-    bottom:8px;
-
-    border:1px solid rgba(122,31,42,.08);
-}
-
-.info-icon{
-    position:relative;
-
-    color:#7a1f2a;
-
-    font-size:23px;
-
-    margin-bottom:13px;
-}
-
-.info-label{
-    position:relative;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:12px;
-
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     text-transform:uppercase;
-
-    color:#8d766a;
-
-    margin-bottom:10px;
-}
-
-.info-value{
-    position:relative;
-
-    font-family:"Playfair Display",serif;
-
-    font-size:18px;
-
-    color:#402e28;
-
-    line-height:1.5;
 }
 
 
 /* =====================================================
-   LOCALISATION
+   COUNTDOWN
 ===================================================== */
 
-.location-section{
-    padding-top:10px;
-}
+.countdown-section{
+    min-height:65vh;
 
-.location-title{
-    font-family:"Great Vibes",cursive;
+    padding:110px 25px;
 
-    font-size:50px;
+    display:flex;
 
-    color:#741e29;
-
-    margin-bottom:10px;
-}
-
-.location-address{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:19px;
-
-    color:#67534a;
-
-    margin-bottom:25px;
-}
-
-.map-button{
-    display:inline-flex;
+    flex-direction:column;
 
     align-items:center;
     justify-content:center;
 
-    gap:10px;
+    text-align:center;
 
-    padding:14px 30px;
-
-    border:1px solid #741e29;
-
-    color:#741e29;
-
-    background:transparent;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:15px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    transition:.35s ease;
-}
-
-.map-button:hover{
-    background:#741e29;
-
-    color:#fff8ef;
-
-    transform:translateY(-3px);
-}
-
-
-/* =====================================================
-   PARTIE 3 — IMAGE AVEC SRC
-===================================================== */
-
-.table-section{
-    min-height:100svh;
+    background:#f5f3ee;
 
     position:relative;
 
+    overflow:hidden;
+}
+
+.countdown-section::before{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border:1px solid rgba(150,140,125,.13);
+
+    border-radius:50%;
+
+    left:-200px;
+    top:-200px;
+}
+
+.countdown-section::after{
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border:1px solid rgba(150,140,125,.13);
+
+    border-radius:50%;
+
+    right:-180px;
+    bottom:-180px;
+}
+
+.countdown-section h2{
+    font-family:'Parisienne',cursive;
+
+    font-size:65px;
+
+    font-weight:400;
+
+    color:#4d4944;
+
+    margin-bottom:50px;
+}
+
+.countdown{
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    overflow:hidden;
+    gap:18px;
 
-    padding:80px 20px;
+    position:relative;
 
-    background:#3b302c;
+    z-index:2;
+}
+
+.count-box{
+    min-width:115px;
+
+    padding:25px 15px;
+
+    border:1px solid #d5cec4;
+
+    background:rgba(255,255,255,.65);
+
+    backdrop-filter:blur(5px);
+}
+
+.count-box span{
+    display:block;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:55px;
+
+    line-height:1;
+
+    color:#57514b;
+}
+
+.count-box small{
+    display:block;
+
+    margin-top:12px;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#8a8177;
+}
+
+.count-separator{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:38px;
+
+    color:#a89b8b;
+
+    margin-top:-25px;
+}
+
+.countdown-date{
+    margin-top:40px;
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#83796e;
 }
 
 
-/* IMAGE TABLE */
+/* =====================================================
+   PROGRAMME
+===================================================== */
 
-.table-image{
+.programme{
+    padding:120px 25px;
+
+    background:#faf9f6;
+
+    text-align:center;
+}
+
+.programme h2{
+    font-family:'Parisienne',cursive;
+
+    font-size:70px;
+
+    font-weight:400;
+
+    margin-bottom:65px;
+}
+
+.events{
+    max-width:500px;
+
+    margin:auto;
+}
+
+.event{
+    padding:50px 30px;
+
+    border:1px solid #ddd7cf;
+
+    background:rgba(255,255,255,.65);
+
+    transition:.5s ease;
+}
+
+.event:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.06);
+}
+
+.event-number{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:52px;
+
+    color:#a99c8c;
+}
+
+.event h3{
+    margin:18px 0 12px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
+
+    font-weight:500;
+}
+
+.event p{
+    font-size:11px;
+
+    line-height:1.8;
+
+    color:#777;
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location{
+    padding:120px 25px;
+
+    text-align:center;
+
+    background:#e9e7e2;
+}
+
+.location h2{
+    font-family:'Parisienne',cursive;
+
+    font-size:70px;
+
+    font-weight:400;
+
+    margin-bottom:25px;
+}
+
+.location-name{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:40px;
+}
+
+.location-address{
+    margin-top:10px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#777;
+}
+
+
+/* =====================================================
+   MAP IMAGINAIRE
+===================================================== */
+
+.map-container{
+    width:min(1000px,92%);
+
+    height:480px;
+
+    margin:60px auto 0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid rgba(100,90,80,.2);
+
+    background:#deddd7;
+}
+
+.map-water{
     position:absolute;
 
-    inset:0;
+    width:450px;
+    height:250px;
 
+    border-radius:50%;
+
+    background:#cbd6d9;
+
+    right:-150px;
+    top:-70px;
+
+    transform:rotate(-15deg);
+}
+
+.map-road{
+    position:absolute;
+
+    height:55px;
+
+    background:#efeee9;
+
+    transform:rotate(-22deg);
+
+    width:130%;
+
+    left:-15%;
+    top:180px;
+
+    box-shadow:
+        0 0 0 2px #d0cec7;
+}
+
+.map-road.second{
+    transform:rotate(32deg);
+
+    top:310px;
+}
+
+.map-road.third{
+    transform:rotate(90deg);
+
+    width:110%;
+
+    top:120px;
+    left:-5%;
+}
+
+.tree{
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#c7c6bb;
+
+    opacity:.7;
+}
+
+.tree.one{
+    left:10%;
+    top:20%;
+}
+
+.tree.two{
+    left:20%;
+    bottom:10%;
+}
+
+.tree.three{
+    right:20%;
+    bottom:20%;
+}
+
+.tree.four{
+    right:8%;
+    top:35%;
+}
+
+
+/* marker */
+
+.map-marker{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-100%);
+}
+
+.marker-pin{
+    width:42px;
+    height:42px;
+
+    border-radius:
+        50% 50% 50% 0;
+
+    background:#948779;
+
+    transform:rotate(-45deg);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+
+    animation:markerPulse 2s infinite;
+}
+
+.marker-pin::after{
+    content:"";
+
+    position:absolute;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    left:14px;
+    top:14px;
+}
+
+@keyframes markerPulse{
+
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(-45deg) scale(1.08);
+    }
+}
+
+.map-card{
+    position:absolute;
+
+    left:50%;
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    min-width:270px;
+
+    padding:18px 30px;
+
+    background:rgba(255,255,255,.94);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.12);
+}
+
+.map-card strong{
+    display:block;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:23px;
+
+    font-weight:500;
+}
+
+.map-card span{
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    color:#777;
+}
+
+
+/* =====================================================
+   IMAGE 3 — PHOTO FINALE
+===================================================== */
+
+.final-image{
+    position:relative;
+
+    min-height:90vh;
+
+    overflow:hidden;
+
+    background:#dedbd4;
+}
+
+
+/*
+   IMAGE 3
+
+   Cette photo prend toute la section.
+*/
+
+.final-image img{
     width:100%;
-    height:100%;
+    height:90vh;
 
     object-fit:cover;
 
-    object-position:center;
-
-    z-index:0;
+    display:block;
 }
 
-
-/* VOILE */
-
-.table-section::before{
-    content:"";
-
+.final-overlay{
     position:absolute;
 
     inset:0;
 
     background:
         linear-gradient(
-            rgba(22,26,24,.15),
-            rgba(22,26,24,.48)
+            rgba(0,0,0,.08),
+            rgba(0,0,0,.38)
         );
-
-    z-index:1;
-}
-
-.table-section::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(15,20,18,.35) 100%
-        );
-
-    z-index:1;
-}
-
-.table-content{
-    position:relative;
-
-    z-index:2;
-
-    width:min(750px,92%);
-
-    text-align:center;
-
-    color:#fffdf7;
-}
-
-.table-small{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:14px;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    margin-bottom:15px;
-}
-
-.table-title{
-    font-family:"Great Vibes",cursive;
-
-    font-size:75px;
-
-    line-height:1.05;
-
-    margin-bottom:20px;
-
-    text-shadow:0 4px 20px rgba(0,0,0,.25);
-}
-
-.table-text{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:21px;
-
-    line-height:1.7;
-
-    max-width:620px;
-
-    margin:auto;
-
-    text-shadow:0 2px 15px rgba(0,0,0,.35);
-}
-
-
-/* =====================================================
-   PARTIE 4
-===================================================== */
-
-.final{
-    min-height:75svh;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:90px 20px;
-
-    background:#f6efe5;
-}
-
-.final-content{
-    width:min(750px,92%);
-}
-
-.final-mn{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:14px;
-
-    letter-spacing:9px;
-
-    color:#7a1f2a;
-
-    margin-bottom:20px;
-}
-
-.final-title{
-    font-family:"Great Vibes",cursive;
-
-    font-size:80px;
-
-    color:#741e29;
-
-    margin-bottom:20px;
 }
 
 .final-text{
-    font-family:"Cormorant Garamond",serif;
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:90%;
+
+    text-align:center;
+
+    color:#fff;
+}
+
+.final-text small{
+    font-size:8px;
+
+    letter-spacing:5px;
+}
+
+.final-text h2{
+    font-family:'Parisienne',cursive;
+
+    font-size:
+        clamp(65px,9vw,120px);
+
+    font-weight:400;
+
+    margin:20px 0;
+}
+
+.final-text p{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:23px;
+}
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp{
+    padding:120px 25px;
+
+    text-align:center;
+
+    background:#f8f6f2;
+}
+
+.rsvp h2{
+    font-family:'Parisienne',cursive;
+
+    font-size:70px;
+
+    font-weight:400;
+}
+
+.rsvp p{
+    max-width:550px;
+
+    margin:20px auto 35px;
+
+    color:#777;
+
+    font-family:'Cormorant Garamond',serif;
 
     font-size:21px;
-
-    line-height:1.7;
-
-    color:#665249;
 }
 
-.final-date{
-    font-family:"Playfair Display",serif;
+.rsvp-button{
+    display:inline-block;
 
-    font-size:16px;
+    padding:16px 38px;
 
-    letter-spacing:4px;
+    border:1px solid #aaa093;
 
-    color:#7a655b;
+    color:#514c47;
 
-    margin-top:30px;
+    text-decoration:none;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    transition:.4s ease;
+}
+
+.rsvp-button:hover{
+    background:#514c47;
+
+    color:#fff;
 }
 
 
 /* =====================================================
-   WEDDING INVITATION STUDIO
+   FOOTER
 ===================================================== */
 
-.studio-footer{
-    margin-top:65px;
+footer{
+    padding:60px 20px;
+
     text-align:center;
+
+    background:#e8e5df;
 }
 
-.studio-line{
-    width:55px;
-    height:1px;
+.footer-names{
+    font-family:'Parisienne',cursive;
 
-    background:#7a1f2a;
-
-    margin:0 auto 25px;
-
-    opacity:.7;
+    font-size:48px;
 }
 
-.studio-name{
-    font-family:"Playfair Display",serif;
+footer p{
+    margin-top:15px;
 
-    font-size:15px;
+    font-size:8px;
 
     letter-spacing:3px;
 
     text-transform:uppercase;
 
-    color:#7a1f2a;
-
-    margin-bottom:10px;
-}
-
-.studio-tagline{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:16px;
-
-    color:#806d63;
-
-    margin-bottom:20px;
-}
-
-.instagram-link{
-    display:inline-flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:4px;
-
-    color:#7a1f2a;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:16px;
-
-    letter-spacing:1.5px;
-
-    border-bottom:1px solid rgba(122,31,42,.35);
-
-    padding-bottom:5px;
-
-    transition:.3s ease;
-}
-
-.instagram-link span{
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-}
-
-.instagram-link:hover{
-    transform:translateY(-2px);
-
-    opacity:.75;
-}
-
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes sealFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-7px);
-    }
-}
-
-@keyframes ringPulse{
-
-    0%,100%{
-        transform:scale(1);
-        opacity:.5;
-    }
-
-    50%{
-        transform:scale(1.08);
-        opacity:.15;
-    }
-}
-
-@keyframes fadeText{
-
-    from{
-        opacity:.45;
-    }
-
-    to{
-        opacity:1;
-    }
-}
-
-@keyframes scrollLine{
-
-    0%{
-        transform:scaleY(.3);
-        transform-origin:top;
-        opacity:.2;
-    }
-
-    50%{
-        transform:scaleY(1);
-        transform-origin:top;
-        opacity:1;
-    }
-
-    100%{
-        transform:scaleY(.3);
-        transform-origin:bottom;
-        opacity:.2;
-    }
+    color:#777;
 }
 
 
@@ -1071,174 +1177,123 @@ a{
 
 @media(max-width:700px){
 
-    .opening-frame{
-        inset:15px;
+    .seal-button{
+        width:125px;
+        height:125px;
     }
 
-    .opening-initials{
-        font-size:14px;
-        letter-spacing:5px;
+    .seal-initials{
+        font-size:41px;
     }
 
-    .wax-wrapper{
-        width:130px;
-        height:130px;
-    }
-
-    .wax-wrapper::before{
-        width:152px;
-        height:152px;
-    }
-
-    .wax-seal{
-        width:108px;
-        height:108px;
-    }
-
-    .wax-mn{
-        font-size:39px;
-    }
-
-    .open-text{
-        font-size:11px;
+    .opening-text{
+        bottom:35px;
         letter-spacing:3px;
     }
 
-
-    /* HERO */
-
-    .hero{
-        min-height:100svh;
-    }
-
-    .bismillah{
-        font-size:26px;
-    }
-
     .names{
-        font-size:70px;
+        font-size:72px;
     }
 
-    .names .and{
-        font-size:.32em;
-        margin:0 4px;
-    }
-
-    .hero-mn{
-        font-size:11px;
-        letter-spacing:6px;
-    }
-
-    .date{
-        font-size:15px;
-        letter-spacing:2px;
-    }
-
-    .location-small{
-        font-size:15px;
-    }
-
-
-    /* DETAILS */
-
-    .details{
-        min-height:100svh;
-        padding:85px 18px;
-    }
-
-    .details-title{
+    .intro h2,
+    .programme h2,
+    .location h2,
+    .rsvp h2{
         font-size:55px;
     }
 
-    .info-grid{
-        grid-template-columns:1fr;
-        gap:15px;
+    .intro p{
+        font-size:20px;
     }
 
-    .info-card{
-        padding:28px 18px;
+    .countdown-section{
+        min-height:70vh;
+        padding:90px 15px;
     }
 
-    .location-title{
-        font-size:45px;
+    .countdown-section h2{
+        font-size:55px;
+        margin-bottom:40px;
     }
 
-
-    /* TABLE */
-
-    .table-section{
-        min-height:85svh;
+    .countdown{
+        gap:5px;
     }
 
-    .table-title{
-        font-size:60px;
+    .count-box{
+        min-width:72px;
+        padding:18px 7px;
     }
 
-    .table-text{
-        font-size:18px;
+    .count-box span{
+        font-size:38px;
     }
 
-
-    /* FINAL */
-
-    .final{
-        min-height:75svh;
+    .count-box small{
+        font-size:6px;
+        letter-spacing:1.5px;
     }
 
-    .final-title{
-        font-size:65px;
+    .count-separator{
+        font-size:25px;
+        margin-top:-18px;
     }
 
-    .final-text{
-        font-size:19px;
+    .map-container{
+        height:420px;
     }
 
-    .studio-name{
-        font-size:13px;
-        letter-spacing:2px;
+    .map-water{
+        width:300px;
+        height:180px;
     }
 
-    .studio-tagline{
-        font-size:15px;
+    .final-image,
+    .final-image img{
+        min-height:75vh;
+        height:75vh;
     }
+
 }
 
 
 /* =====================================================
-   VERY SMALL PHONES
+   MOBILE — HERO
 ===================================================== */
 
-@media(max-width:380px){
+@media(max-width:480px){
+
+    .hero-content{
+        padding:20px;
+    }
+
+    .small-title{
+        font-size:7px;
+        letter-spacing:3px;
+    }
 
     .names{
-        font-size:61px;
+        font-size:65px;
     }
 
-    .bismillah{
-        font-size:23px;
+    .amp{
+        font-size:36px;
+        margin:12px 0;
     }
 
-    .wax-seal{
-        width:100px;
-        height:100px;
+    .hero-date{
+        font-size:20px;
+        letter-spacing:3px;
     }
 
-    .wax-mn{
-        font-size:35px;
-    }
-
-    .details-title{
-        font-size:49px;
-    }
-
-    .table-title{
-        font-size:52px;
+    .hero-place{
+        font-size:7px;
+        letter-spacing:2px;
     }
 
 }
 
 </style>
-
 </head>
 
 
@@ -1249,399 +1304,825 @@ a{
      OPENING
 ===================================================== -->
 
-<section class="opening" id="opening">
+<div
+    class="opening"
+    id="opening"
+>
 
-    <div class="opening-frame"></div>
 
-    <div class="opening-content">
+    <!-- =================================================
+         IMAGE 1 — ENVELOPPE BLEU CIEL
 
-        <div class="opening-initials">
-            M & M
-        </div>
+         CHANGE UNIQUEMENT src=""
+    ================================================== -->
 
-        <div class="wax-wrapper" id="waxSeal">
+    <img
+        src=""
+        class="opening-image"
+        alt="Enveloppe invitation"
+    >
 
-            <div class="wax-seal">
 
-                <div class="wax-mn">
-                    M&M
-                </div>
+    <div class="opening-overlay"></div>
 
-                <div class="wax-line"></div>
 
-                <div class="wax-text">
-                    Wedding
-                </div>
+    <!-- =================================================
+         WAX SEAL
+    ================================================== -->
 
-            </div>
+    <button
+        class="seal-button"
+        id="openButton"
+        aria-label="Ouvrir l'invitation"
+    >
 
-        </div>
+        <span class="seal-initials">
+            E&nbsp;&amp;&nbsp;N
+        </span>
 
-        <div class="open-text">
-            Appuyez pour ouvrir
-        </div>
+    </button>
 
-        <div class="open-subtext">
-            Une invitation pour un moment précieux
-        </div>
 
+    <div class="opening-text">
+        Touchez le sceau pour ouvrir
     </div>
 
-</section>
+</div>
+
+
+<!-- pétales -->
+
+<div
+    class="petals"
+    id="petals"
+></div>
 
 
 
 <!-- =====================================================
-     MAIN
+     SITE
 ===================================================== -->
 
-<main class="main" id="main">
+<main id="site">
 
 
 <!-- =====================================================
-     PARTIE 1
+     PAGE 1
+     IMAGE 2 = BACKGROUND COMPLET
 ===================================================== -->
 
 <section class="hero">
 
 
-    <!-- ===============================================
-         PHOTO 1
-         REMPLACE LE SRC CI-DESSOUS PAR TON IMAGE GITHUB
-    ================================================ -->
+    <!-- =================================================
+         IMAGE 2
+
+         C'est le background complet de cette page.
+
+         CHANGE UNIQUEMENT src=""
+    ================================================== -->
 
     <img
-        class="hero-image"
-        src="palace-1.jpg"
-        alt="Photo du mariage"
+        src=""
+        class="hero-background"
+        alt=""
     >
+
+
+    <div class="hero-overlay"></div>
 
 
     <div class="hero-content">
 
-        <div class="eyebrow">
-            Notre mariage
+
+        <div class="small-title">
+            Une invitation à célébrer l'amour
         </div>
 
-        <div class="bismillah">
-            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-        </div>
 
         <div class="names">
+            Éléa
+        </div>
 
-            Mehdi
 
-            <span class="and">
-                &
+        <div class="amp">
+            &
+        </div>
+
+
+        <div class="names">
+            Naël
+        </div>
+
+
+        <div class="hero-date">
+            26 · 09 · 2026
+        </div>
+
+
+        <div class="hero-place">
+            Jardin d'Azur · Val d'Elia
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NOTRE HISTOIRE
+===================================================== -->
+
+<section class="intro">
+
+
+    <div class="intro-inner">
+
+
+        <div class="bismillah">
+            بسم الله الرحمن الرحيم
+        </div>
+
+
+        <div class="divider">
+
+            <span></span>
+
+            <i>✦</i>
+
+            <span></span>
+
+        </div>
+
+
+        <h2>
+            Notre histoire
+        </h2>
+
+
+        <p>
+            Deux chemins qui se sont rencontrés,
+            deux cœurs qui ont choisi d'avancer ensemble,
+            et une nouvelle histoire qui commence.
+        </p>
+
+
+        <p style="margin-top:25px;">
+
+            Nous serions profondément heureux
+            de vous avoir à nos côtés pour célébrer
+            ce jour si précieux.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DATE
+===================================================== -->
+
+<section class="date-section">
+
+
+    <div class="section-label">
+        Save the date
+    </div>
+
+
+    <div class="big-date">
+
+        Samedi<br>
+
+        26 Septembre 2026
+
+    </div>
+
+
+    <div class="date-info">
+        À partir de 19h00
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="countdown-section">
+
+
+    <div class="section-label">
+        Le grand jour approche
+    </div>
+
+
+    <h2>
+        Plus que...
+    </h2>
+
+
+    <div class="countdown">
+
+
+        <div class="count-box">
+
+            <span id="days">
+                00
             </span>
 
-            Mouna
+            <small>
+                Jours
+            </small>
 
         </div>
 
-        <div class="hero-mn">
-            M & M
+
+        <div class="count-separator">
+            :
         </div>
 
-        <div class="hero-separator"></div>
 
-        <div class="date">
-            Vendredi 04 septembre 2026
+        <div class="count-box">
+
+            <span id="hours">
+                00
+            </span>
+
+            <small>
+                Heures
+            </small>
+
         </div>
 
-        <div class="location-small">
-            Palace Seddouki · Khaima
+
+        <div class="count-separator">
+            :
         </div>
 
-        <div class="location-small">
-            Début du mariage · 20H
+
+        <div class="count-box">
+
+            <span id="minutes">
+                00
+            </span>
+
+            <small>
+                Minutes
+            </small>
+
         </div>
+
+
+        <div class="count-separator">
+            :
+        </div>
+
+
+        <div class="count-box">
+
+            <span id="seconds">
+                00
+            </span>
+
+            <small>
+                Secondes
+            </small>
+
+        </div>
+
 
     </div>
 
 
-    <div class="scroll-down">
-
-        Découvrir
-
-        <div class="scroll-line"></div>
-
+    <div class="countdown-date">
+        26 · 09 · 2026 · 19:00
     </div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     PARTIE 2
+     PROGRAMME
 ===================================================== -->
 
-<section class="details">
-
-    <div class="details-container">
-
-        <div class="details-intro">
-            Avec la grâce de Dieu
-        </div>
-
-        <div class="details-title">
-            Nous vous invitons
-        </div>
-
-        <div class="details-line"></div>
+<section class="programme">
 
 
-        <div class="info-grid">
+    <div class="section-label">
+        Le programme
+    </div>
 
 
-            <div class="info-card">
+    <h2>
+        Le grand jour
+    </h2>
 
-                <div class="info-icon">
-                    ♡
-                </div>
 
-                <div class="info-label">
-                    Les mariés
-                </div>
+    <div class="events">
 
-                <div class="info-value">
-                    Mehdi & Mouna
-                </div>
 
+        <div class="event">
+
+
+            <div class="event-number">
+                19:00
             </div>
 
 
-            <div class="info-card">
-
-                <div class="info-icon">
-                    ✦
-                </div>
-
-                <div class="info-label">
-                    La date
-                </div>
-
-                <div class="info-value">
-
-                    Vendredi
-                    <br>
-                    04 septembre 2026
-
-                </div>
-
-            </div>
+            <h3>
+                Début du mariage
+            </h3>
 
 
-            <div class="info-card">
-
-                <div class="info-icon">
-                    ◷
-                </div>
-
-                <div class="info-label">
-                    La cérémonie
-                </div>
-
-                <div class="info-value">
-
-                    Début du mariage
-                    <br>
-                    20H
-
-                </div>
-
-            </div>
+            <p>
+                Nous vous attendons pour partager
+                ensemble cette merveilleuse soirée.
+            </p>
 
 
         </div>
 
-
-        <div class="location-section">
-
-            <div class="location-title">
-                Le lieu
-            </div>
-
-            <div class="location-address">
-                Palace Seddouki · Khaima
-            </div>
-
-            <a
-                class="map-button"
-                href="https://maps.app.goo.gl/yp5n5okoFvBzHMF29?g_st=ic"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <span>⌖</span>
-
-                Voir la localisation
-
-            </a>
-
-        </div>
 
     </div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     PARTIE 3
+     LOCALISATION
 ===================================================== -->
 
-<section class="table-section">
+<section class="location">
 
 
-    <!-- ===============================================
-         PHOTO 2
-         REMPLACE LE SRC CI-DESSOUS PAR TON IMAGE GITHUB
-    ================================================ -->
+    <div class="section-label">
+        Le lieu
+    </div>
+
+
+    <h2>
+        Rendez-vous
+    </h2>
+
+
+    <div class="location-name">
+        Palais d'Azur
+    </div>
+
+
+    <div class="location-address">
+        Jardin d'Elia · Val d'Elia
+    </div>
+
+
+
+    <!-- =================================================
+         MAP IMAGINAIRE
+    ================================================== -->
+
+    <div class="map-container">
+
+
+        <div class="map-water"></div>
+
+
+        <div class="map-road"></div>
+
+
+        <div class="map-road second"></div>
+
+
+        <div class="map-road third"></div>
+
+
+        <div class="tree one"></div>
+
+
+        <div class="tree two"></div>
+
+
+        <div class="tree three"></div>
+
+
+        <div class="tree four"></div>
+
+
+        <div class="map-marker">
+
+            <div class="marker-pin"></div>
+
+        </div>
+
+
+        <div class="map-card">
+
+            <strong>
+                Palais d'Azur
+            </strong>
+
+
+            <span>
+                VAL D'ELIA · 31.000
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     IMAGE 3 — PHOTO FINALE
+===================================================== -->
+
+<section class="final-image">
+
+
+    <!-- =================================================
+         IMAGE 3
+
+         CHANGE UNIQUEMENT src=""
+    ================================================== -->
 
     <img
-        class="table-image"
-        src="table-2.jpg"
-        alt="Décoration du mariage"
+        src=""
+        alt="Éléa & Naël"
     >
 
 
-    <div class="table-content">
+    <div class="final-overlay"></div>
 
-        <div class="table-small">
-            Une soirée élégante
-        </div>
 
-        <div class="table-title">
-            Un moment précieux
-        </div>
+    <div class="final-text">
 
-        <div class="table-text">
 
-            Des fleurs blanches,
-            des bougies,
-            une lumière douce
-            et une ambiance élégante
-            pour célébrer notre union.
+        <small>
+            Et que cette journée reste à jamais
+        </small>
 
-        </div>
+
+        <h2>
+            Dans nos mémoires
+        </h2>
+
+
+        <p>
+            Éléa & Naël
+        </p>
+
 
     </div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     PARTIE 4
+     RSVP
 ===================================================== -->
 
-<section class="final">
-
-    <div class="final-content">
-
-        <div class="final-mn">
-            M & M
-        </div>
-
-        <div class="final-title">
-            Mehdi & Mouna
-        </div>
-
-        <div class="final-text">
-
-            Nous serions heureux
-            de partager avec vous
-            cette journée si particulière
-            et de célébrer ensemble
-            le début de notre nouvelle histoire.
-
-        </div>
-
-        <div class="final-date">
-            04 · 09 · 2026
-        </div>
+<section class="rsvp">
 
 
-        <div class="studio-footer">
-
-            <div class="studio-line"></div>
-
-            <div class="studio-name">
-                Wedding Invitation Studio
-            </div>
-
-            <div class="studio-tagline">
-                Des invitations digitales pensées pour vos moments précieux
-            </div>
-
-            <a
-                href="https://www.instagram.com/wedding_invitation_studio_/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="instagram-link"
-            >
-
-                <span>
-                    Instagram
-                </span>
-
-                @wedding_invitation_studio_
-
-            </a>
-
-        </div>
-
+    <div class="section-label">
+        Confirmation
     </div>
 
+
+    <h2>
+        Votre présence
+    </h2>
+
+
+    <p>
+
+        Votre présence à nos côtés rendra
+        cette journée encore plus précieuse.
+        Merci de nous confirmer votre présence.
+
+    </p>
+
+
+    <a
+        href="#"
+        class="rsvp-button"
+    >
+        Confirmer ma présence
+    </a>
+
+
 </section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-names">
+        Éléa & Naël
+    </div>
+
+
+    <p>
+        Avec amour · 26 Septembre 2026
+    </p>
+
+
+</footer>
 
 
 </main>
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-const waxSeal =
-    document.getElementById("waxSeal");
+/* =====================================================
+   OUVERTURE DE L'ENVELOPPE
+===================================================== */
 
 const opening =
     document.getElementById("opening");
 
-const main =
-    document.getElementById("main");
+const button =
+    document.getElementById("openButton");
+
+const site =
+    document.getElementById("site");
+
+const petals =
+    document.getElementById("petals");
 
 
-function openInvitation(){
+button.addEventListener(
+    "click",
+    function(){
 
-    main.classList.add("visible");
+        opening.classList.add(
+            "opening-active"
+        );
 
-    opening.classList.add("hidden");
 
-    setTimeout(function(){
+        createPetals();
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
 
-    },300);
+        setTimeout(
+            function(){
+
+                site.classList.add(
+                    "visible"
+                );
+
+            },
+            700
+        );
+
+
+        setTimeout(
+            function(){
+
+                opening.classList.add(
+                    "hide"
+                );
+
+                document.body.style.overflow =
+                    "auto";
+
+            },
+            1600
+        );
+
+    }
+);
+
+
+/* =====================================================
+   PÉTALES
+===================================================== */
+
+function createPetals(){
+
+    for(
+        let i = 0;
+        i < 45;
+        i++
+    ){
+
+        const petal =
+            document.createElement("div");
+
+
+        petal.classList.add(
+            "petal"
+        );
+
+
+        petal.style.left =
+            Math.random() * 100 + "%";
+
+
+        petal.style.animationDuration =
+            (4 + Math.random() * 5) + "s";
+
+
+        petal.style.animationDelay =
+            (Math.random() * 1.5) + "s";
+
+
+        petal.style.width =
+            (7 + Math.random() * 8) + "px";
+
+
+        petal.style.height =
+            (10 + Math.random() * 12) + "px";
+
+
+        petals.appendChild(
+            petal
+        );
+
+
+        setTimeout(
+            function(){
+
+                petal.remove();
+
+            },
+            10000
+        );
+
+    }
 
 }
 
 
-waxSeal.addEventListener(
-    "click",
-    openInvitation
+/* =====================================================
+   COMPTE À REBOURS
+===================================================== */
+
+const weddingDate =
+    new Date(
+        "2026-09-26T19:00:00"
+    ).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+
+    const distance =
+        weddingDate - now;
+
+
+    if(
+        distance <= 0
+    ){
+
+        document.getElementById(
+            "days"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "hours"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "00";
+
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            )
+            /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60)
+            )
+            /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60)
+            )
+            /
+            1000
+        );
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
 );
 
-</script>
 
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+document.body.style.overflow =
+    "hidden";
+
+</script>
 
 </body>
 </html>
